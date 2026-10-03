@@ -1,0 +1,22 @@
+name: Jarvis Bulut Tarayici
+
+on:
+  schedule:
+    # Her 1 saatte bir otomatik çalışmasını sağlar
+    - cron: '0 * * * *'
+  workflow_dispatch: # İstersen el ile de çalıştırabilirsin
+
+jobs:
+  tarama:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kodlari Indir
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Botu Calistir
+        run: python jarvis_bot.py
